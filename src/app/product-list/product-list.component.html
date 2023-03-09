@@ -1,3 +1,9 @@
+<div class="fourni" *ngFor="let fournisseur of fournisseurs">
+  <a class="container-fourni"
+  (click)="onClickFournisseur(fournisseur.id)"
+  >{{fournisseur.name}}</a>
+</div>
+
 <div *ngFor="let product of products">
   <h3>
     <a
@@ -9,5 +15,4 @@
   </h3>
   <img  class="images" src={{product.image}}>
 
-  <!-- . . . -->
 </div>

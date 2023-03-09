@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ProductService } from '../product.service';
 
 import { Product } from '../products';
+import { fournisseurs } from '../fournisseur';
 
 
 @Component({
@@ -11,12 +12,14 @@ import { Product } from '../products';
 })
 export class ProductListComponent {
   
+  fournisseurs = [...fournisseurs];
   products : Product[]=[];
 
   constructor(private productService: ProductService) {}
 
   ngOnInit() {
-    this.productService.getProducts().subscribe(data => this.products = data);
+    let fournisseur : number = 401000211;
+    this.productService.getProducts(fournisseur.toString()).subscribe(data => this.products = data);
   }
 
   share() {
@@ -25,6 +28,11 @@ export class ProductListComponent {
 
   onNotify() {
     window.alert('You will be notified when the product goes on sale');
+  }
+
+  onClickFournisseur(fournisseur : number){
+    console.warn("test");
+    this.productService.getProducts(fournisseur.toString()).subscribe(data => this.products = data);
   }
 }
 

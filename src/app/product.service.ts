@@ -13,10 +13,10 @@ export class ProductService {
 
   constructor(private http: HttpClient) {}
 
-  getProducts(): Observable<Product[]> {
+  getProducts(fournisseur:string): Observable<Product[]> {
     // if (this.products.length>0){
-      // return this.products;
+    //   return this.products;
     // }
-    return this.http.get<any>(this.productsUrl+this.fournisseurId);
+    return this.http.get<any>(this.productsUrl+fournisseur);
   }
 }

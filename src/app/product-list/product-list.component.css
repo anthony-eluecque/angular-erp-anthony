@@ -5,3 +5,14 @@ Copyright Google LLC. All Rights Reserved.
 Use of this source code is governed by an MIT-style license that
 can be found in the LICENSE file at https://angular.io/license
 */
+
+.fourni{
+    display: inline-block;
+    background-color: rgb(229, 229, 229);
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.container-fourni{
+    padding: 5px;
+}
