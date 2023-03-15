@@ -13,10 +13,14 @@ export class ProductService {
 
   constructor(private http: HttpClient) {}
 
-  getProducts(fournisseur:string): Observable<Product[]> {
+  setFournisseur(fournisseur : number):void{
+    this.fournisseurId = fournisseur + ''
+  }
+
+  getProducts(): Observable<Product[]> {
     // if (this.products.length>0){
     //   return this.products;
     // }
-    return this.http.get<any>(this.productsUrl+fournisseur);
+    return this.http.get<any>(this.productsUrl+this.fournisseurId);
   }
 }
