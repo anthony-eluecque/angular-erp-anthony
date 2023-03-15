@@ -18,8 +18,7 @@ export class ProductListComponent {
   constructor(private productService: ProductService) {}
 
   ngOnInit() {
-    let fournisseur : number = 401000211;
-    this.productService.getProducts(fournisseur.toString()).subscribe(data => this.products = data);
+    this.productService.getProducts().subscribe(data => this.products = data);
   }
 
   share() {
@@ -31,8 +30,8 @@ export class ProductListComponent {
   }
 
   onClickFournisseur(fournisseur : number){
-    console.warn("test");
-    this.productService.getProducts(fournisseur.toString()).subscribe(data => this.products = data);
+    this.productService.setFournisseur(fournisseur);
+    this.productService.getProducts().subscribe(data => this.products = data);
   }
 }
 
