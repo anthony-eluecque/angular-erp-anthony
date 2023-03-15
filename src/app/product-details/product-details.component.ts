@@ -4,6 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Product } from '../products';
 import { CartService } from '../cart.service';
 import { ProductService } from '../product.service';
+import { Fournisseur, fournisseurs } from '../fournisseur';
+
 
 @Component({
   selector: 'app-product-details',
@@ -22,12 +24,12 @@ export class ProductDetailsComponent implements OnInit {
 
   ngOnInit() {
     // First get the product id from the current route.
+    
     const routeParams = this.route.snapshot.paramMap;
     const productIdFromRoute = Number(routeParams.get('productId'));
-
-    let fournisseur = 401000211;
+    
     // Find the product that correspond with the id provided in route.
-    this.productService.getProducts(fournisseur.toString()).subscribe((products)=>{
+    this.productService.getProducts().subscribe((products)=>{
       this.product = products.find(
       (product) => product.id === productIdFromRoute
     )});
